@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+
+    input,select,textarea{ margin-top: 15px; }
+</style>
+<body>
+{#<script src="http://order.not3.com/js/mtj.js"></script>#}
+
+<form action="login.html" method="post" target="_blank">
+<label for="user">用户名：</label>
+<input type="text" name="user" id="<user></user>" size="" maxlength="8" value="请输入..."/><br>
+
+<label for="password">密　码：</label>
+<input type="password" name="password" id="password" size="" maxlength="" value=""/><br>
+
+<label for="checkbox">复选框：</label>
+<input type="checkbox" name="" id="checkbox" value=""/><br>
+
+<label for="radio">单选框：</label>
+<input type="radio" name="" id="radio" value=""/><br>
+
+<label for="hidden">隐藏域：</label>
+<input type="hidden" name="" id="hidden" value=""/><br>
+
+<label for="file">上传文件：</label>
+<input type="file" name="" id="file"/><br>
+
+
+<label for="sel">下拉菜单：</label>
+<select name="" id="sel">
+    <option value="2" > 上海</option>
+    <option value="1" selected> 广州市</option>
+    <option value="3" > 深圳</option>
+    <option value="4" > 北京</option>
+</select><br>
+
+<label for="ta">多行文本框：</label><br>
+<textarea name="desc" cols="50" rows="10" wrap="" id="ta"></textarea><br>
+
+<input  type="submit" name="sub" value="这是提交按钮"/>
+<input  type="reset" name="res" value="这是复位按钮"/>
+<input  type="button" name="btn" value="这是普通按钮"/>
+<input  type="image" name="img" src="btn.jpg"/>
+</form>
+
+
+<!--使用cookie-->
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
+<script>
+ $.cookie('doctorId', '11916111-f2eb-11e4-b756-f40669963d49', { expires: 1, path: '/'});
+</script>
+</body>
+</html>
