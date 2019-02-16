@@ -11,11 +11,11 @@ def homepage(request):
     return HttpResponse("Hello， World! from homepage.view")
 
 def index(request):
-    if request.META.has_key('HTTP_X_FORWARDED_FOR'):
+    if 'HTTP_X_FORWARDED_FOR' in request.META:
         ip = request.META['HTTP_X_FORWARDED_FOR']
     else:
         ip = request.META['REMOTE_ADDR']
-    return render(request, 'index.html')
+    return render(request, 'watch_index.html')
 
 class UserViewSet(viewsets.ModelViewSet):
     """

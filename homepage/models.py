@@ -23,11 +23,11 @@ class Picture(models):
 
 
 class HomePic(models.Model):
-    ph = models.ImageField(u'图片', upload_to='uploadImages')
+    ph = models.ImageField(u'图片', upload_to='homepic')
     name = models.CharField(u'名称', max_length=256)
-    url = models.CharField(u'链接', max_length=256)
+    #url = models.CharField(u'链接', max_length=256)
     pic_num = models.IntegerField(u'排序')
-    show = models.BooleanField(u'显示')
+    show = models.BooleanField(u'显示', default=True)
 
     class Meta:
         ordering = ['pic_num']
