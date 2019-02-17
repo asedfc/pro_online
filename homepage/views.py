@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from .serializers import UserSerializer, GroupSerializer
+from .serializers import UserSerializer, GroupSerializer, HomePicSerializer
 
+from .models import HomePic
 
 # Create your views here.
 def homepage(request):
@@ -15,9 +15,12 @@ def index(request):
         ip = request.META['HTTP_X_FORWARDED_FOR']
     else:
         ip = request.META['REMOTE_ADDR']
+
+
     return render(request, 'watch_index.html')
 
-class UserViewSet(viewsets.ModelViewSet):
+#class UserViewSet(viewsets.ModelViewSet):
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
@@ -25,9 +28,14 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 
-class GroupViewSet(viewsets.ModelViewSet):
+class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+
+class HomePicViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = HomePic.objects.filter(show=True)
+    serializer_class = HomePicSerializer

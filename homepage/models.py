@@ -25,7 +25,7 @@ class Picture(models):
 class HomePic(models.Model):
     ph = models.ImageField(u'图片', upload_to='homepic')
     name = models.CharField(u'名称', max_length=256)
-    #url = models.CharField(u'链接', max_length=256)
+    click_href = models.CharField(u'商品链接', max_length=256, blank=True, null=True)
     pic_num = models.IntegerField(u'排序')
     show = models.BooleanField(u'显示', default=True)
 

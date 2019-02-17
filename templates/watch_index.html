@@ -62,7 +62,7 @@ nav ul li a{display: block;line-height: 45px;width: 100%;color: #fff;font-size: 
         autoPlay:true,
         interTime:2500 });
 </script>
-<img src="/static/watch_index_files/TB2W.gif">
+<img src="/static/watch_index_files/TB2W.gif" >
 
 
 
@@ -95,7 +95,7 @@ nav ul li a{display: block;line-height: 45px;width: 100%;color: #fff;font-size: 
 <a href="#pic_href?aid=236" target="_top"><img src="/static/watch_index_files/1-1P32313143a22.gif"></a-->
 
 
-<img src="/static/watch_index_files/TB2y2iYXbsTMeJjSszgXXacpFXa_!!2387917198.gif">
+<img src="/static/watch_index_files/TB2y2iYXbsTMeJjSszgXXacpFXa_!!2387917198.gif" id="img_end">
 <img src="/static/watch_index_files/gongxi.jpg">
 <img src="/static/watch_index_files/TB29WINnhtmpuFjSZFqXXbHFpXa_459534967.gif">
 <img src="/static/watch_index_files/TB2uZuHg0hvOuFjSZFBXXcZgFXa_459534967.jpg">
@@ -107,5 +107,16 @@ nav ul li a{display: block;line-height: 45px;width: 100%;color: #fff;font-size: 
 <script src="/static/watch_index_files/TouchSlide.js"></script>
 <script src="/static/watch_index_files/jquery-1.js"></script>
 <script src="/static/watch_index_files/gzid.js"></script>
+<script>
+    $(document).ready(function(){
+        $.get("/api/hompic/",function(data,status){
+            //alert("数据: " + data + "\n状态: " + status);
+            $.each(data["results"],function (index,val) {
+                click_href = val["click_href"] || "#";
+                $("#img_end").before('<a href="'+click_href+'" target="_top"><img src="'+val["ph"]+'"/></a>');
+            });
+        });
+    })
+</script>
 </body>
 </html>
