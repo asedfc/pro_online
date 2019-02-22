@@ -28,9 +28,9 @@ class BrandAdmin(admin.ModelAdmin):
 
 @admin.register(WatchProduct)
 class WatchProductAdmin(admin.ModelAdmin):
-    list_display = ['image_tag', 'brand', 'name', 'ori_price', 'price']
+    list_display = ['image_tag', 'brand', 'name', 'ori_price', 'price', 'promote']
     list_display_links = ('name',)
-    readonly_fields = ('image_tag',)
+    readonly_fields = ('image_tag', 'promote')
 
     def image_tag(self, obj):
         if obj.hompic:
@@ -40,4 +40,10 @@ class WatchProductAdmin(admin.ModelAdmin):
 
     image_tag.short_description = u'首页产品图片'
     image_tag.allow_tags = True
+
+    def promote(self, obj):
+        return mark_safe('<a href="/product/{}" target="_blank">链接</a>'.format(obj.pk))
+    promote.short_description = u'推广页地址'
+    promote.allow_tags = True
+
     inlines = [WatchPictureInline, CommandInline]

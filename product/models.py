@@ -31,6 +31,7 @@ class WatchProduct(models.Model):
     def __str__(self):
         return self.name
 
+
 class WatchPicture(models.Model):
     watchproduct = models.ForeignKey(WatchProduct, on_delete=models.CASCADE)
     ph = models.ImageField(u'图片', upload_to='watchPicture')  # 多图
